@@ -1,5 +1,5 @@
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Rubik', sans-serif;
     margin: 0;
     padding: 0;
     line-height: 1.6;
@@ -55,6 +55,13 @@ section {
 .project:hover {
     background: #e2e2e2;
     transform: scale(1.05);
+}
+
+code {
+    font-family: 'JetBrains Mono', monospace;
+    background: #e2e2e2;
+    padding: 0.2rem 0.4rem;
+    border-radius: 3px;
 }
 
 footer {
