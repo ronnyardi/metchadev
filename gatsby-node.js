@@ -5,10 +5,10 @@ exports.createPages = async ({ graphql, actions }) => {
 
   const result = await graphql(`
     {
-      allFile(filter: { sourceInstanceName: { eq: "content" }, extension: { eq: "yaml" } }) {
+      allFile(filter: { sourceInstanceName: { eq: "content/blogs" }, extension: { eq: "yaml" } }) {
         edges {
           node {
-            childDataYaml {
+            childBlogsYaml {
               title
               date
               content
@@ -21,12 +21,12 @@ exports.createPages = async ({ graphql, actions }) => {
 
   result.data.allFile.edges.forEach(({ node }) => {
     createPage({
-      path: `/blogs/${node.childDataYaml.title.toLowerCase().replace(/ /g, '-')}`,
+      path: `/blogs/${node.childBlogsYaml.title.toLowerCase().replace(/ /g, '-')}`,
       component: path.resolve('./src/templates/blogTemplate.js'),
       context: {
-        title: node.childDataYaml.title,
-        date: node.childDataYaml.date,
-        content: node.childDataYaml.content,
+        title: node.childBlogsYaml.title,
+        date: node.childBlogsYaml.date,
+        content: node.childBlogsYaml.content,
       },
     })
   })
