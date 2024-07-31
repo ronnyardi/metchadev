@@ -1,19 +1,19 @@
 body {
-    font-family: 'Rubik', sans-serif;
+    font-family: 'Rubik', sans-serif, system-ui;
     margin: 0;
     padding: 0;
     line-height: 1.6;
 }
 
 header {
-    background: #333;
+    background: #000000;
     color: #fff;
     padding: 1rem 0;
     text-align: center;
-    position: fixed;
+    position: sticky;
     width: 100%;
     top: 0;
-    z-index: 1000;
+    z-index: auto;
 }
 
 header nav ul {
@@ -37,24 +37,13 @@ header h1 {
 
 main {
     padding: 5rem 2rem 2rem;
+    text-align: center;
+    color: #080808;
+    background-color: #fff;
 }
 
 section {
-    margin-bottom: 2rem;
-}
-
-.project {
-    background: #f4f4f4;
-    padding: 1rem;
-    margin-bottom: 1rem;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background 0.3s, transform 0.3s;
-}
-
-.project:hover {
-    background: #e2e2e2;
-    transform: scale(1.05);
+    margin-bottom: 4rem;
 }
 
 code {
@@ -65,7 +54,7 @@ code {
 }
 
 footer {
-    background: #333;
+    background: #000000;
     color: #fff;
     text-align: center;
     padding: 1rem 0;

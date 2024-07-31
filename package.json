@@ -1,0 +1,34 @@
+{
+  "name": "resume-website",
+  "private": true,
+  "description": "John Doe's Resume - Professional experience, projects, and certifications.",
+  "version": "1.0.0",
+  "author": "John Doe",
+  "dependencies": {
+    "gatsby": "^4.25.9",
+    "gatsby-plugin-google-fonts": "^1.0.1",
+    "gatsby-plugin-react-helmet": "^5.9.0",
+    "gatsby-source-filesystem": "^4.7.0",
+    "gatsby-transformer-yaml": "^4.7.0",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-helmet": "^6.1.0"
+  },
+  "devDependencies": {
+    "eslint": "^7.32.0",
+    "prettier": "^2.3.2"
+  },
+  "scripts": {
+    "develop": "gatsby develop",
+    "build": "gatsby build",
+    "serve": "gatsby serve",
+    "clean": "gatsby clean",
+    "lint": "eslint . --ext .js,.jsx"
+  },
+  "keywords": [
+    "gatsby",
+    "react",
+    "resume",
+    "yaml"
+  ]
+}
