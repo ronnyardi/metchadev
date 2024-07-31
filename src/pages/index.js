@@ -4,23 +4,33 @@ import Layout from "../components/layout"
 import "../styles/style.css"
 
 const IndexPage = ({ data }) => {
-  const { aboutYaml, careerYaml, projectsYaml, certificationsYaml } = data
-
+  const { contentYaml, allCareerYaml } = data
+  // const { allProjectsYaml, allCertificationsYaml } = data
   return (
     <Layout>
       <header>
-        <h1>{aboutYaml.name}</h1>
-        <p>{aboutYaml.contact}</p>
+        <h1>{contentYaml.name}</h1>
+        <p>{contentYaml.contact}</p>
+        <nav>
+          <ul>
+            <li><a href="#about-me">About Me</a></li>
+            <li><a href="#career">Career</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#certifications">Certifications</a></li>
+            <li><a href="#blogs">Blogs</a></li>
+          </ul>
+        </nav>
       </header>
+
       <main>
         <section id="about-me">
           <h2>About Me</h2>
-          <p>{aboutYaml.bio}</p>
+          <p>{contentYaml.bio}</p>
         </section>
-        <section id="career">
+        {<section id="career">
           <h2>Career</h2>
           <div>
-            {careerYaml.career.map((item, index) => (
+            {allCareerYaml.nodes[0].career.map((item, index) => (
               <div key={index}>
                 <h3>{item.position} at {item.company}</h3>
                 <p>{item.duration}</p>
@@ -29,10 +39,10 @@ const IndexPage = ({ data }) => {
             ))}
           </div>
         </section>
-        <section id="projects">
+        /* <section id="projects">
           <h2>Projects</h2>
           <div>
-            {projectsYaml.projects.map((project, index) => (
+            {allProjectsYaml.nodes.map((project, index) => (
               <div key={index}>
                 <h3>{project.title}</h3>
                 <p>{project.description}</p>
@@ -43,7 +53,7 @@ const IndexPage = ({ data }) => {
         <section id="certifications">
           <h2>Certifications</h2>
           <div>
-            {certificationsYaml.certifications.map((cert, index) => (
+            {allCertificationsYaml.nodes.map((cert, index) => (
               <div key={index}>
                 <h3>{cert.name}</h3>
                 <p>{cert.authority}</p>
@@ -51,7 +61,7 @@ const IndexPage = ({ data }) => {
               </div>
             ))}
           </div>
-        </section>
+        </section> */}
       </main>
     </Layout>
   )
@@ -59,33 +69,30 @@ const IndexPage = ({ data }) => {
 
 export const query = graphql`
   query {
-    aboutYaml {
+    allBlogsYaml {
+      nodes {
+        content
+        date
+        title
+      }
+    }
+    contentYaml {
       name
       contact
       bio
     }
-    careerYaml {
-      career {
-        position
-        company
-        duration
-        details
-      }
-    }
-    projectsYaml {
-      projects {
-        title
-        description
-      }
-    }
-    certificationsYaml {
-      certifications {
-        name
-        authority
-        date
+    allCareerYaml {
+      nodes {
+        career {
+          company
+          details
+          duration
+          position
+        }
       }
     }
   }
+
 `
 
 export default IndexPage
